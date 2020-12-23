@@ -1,0 +1,104 @@
+﻿body {
+    -webkit-touch-callout: none;
+    /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;
+    /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;
+    /* prevent copy paste, to allow, change 'none' to 'text' */
+    position: absolute;
+    background-color: white;
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    width: 100%;
+    height: 100vh;
+    margin-top: 0;
+    padding: 0;
+    /* Padding to avoid the "unsafe" areas behind notches in the screen */
+    /*text-transform: uppercase;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;/**/
+}
+
+.body-content {
+    max-width: 450px;
+    height: 100%;
+    margin-top: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid black;
+}
+
+.margin {
+    margin: 0;
+}
+.margin-top {
+    margin-top: 10px;
+}
+.padding {
+    padding: 0;
+}
+
+.cardapio {
+    max-width: 450px;
+}
+
+.menu-title {
+    background-color: lightgreen;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+
+.menu-subtitle {
+    background-color: lightgray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-bottom: 1px solid black;
+}
+
+.line-right {
+    border-right: 1px solid black;
+}
+
+.label-cardapio {
+    font-size: 0.9375em;
+}
+
+.text-entrada {
+    width: 230px;
+}
+
+.btn-pedido {
+    width: 250px;
+}
+
+.menu-entrada {
+    margin: 0;
+    padding: 0;
+}
+
+.menu-saida {
+    margin: 0;
+    padding: 0;
+}
+
+.input-entrada {
+    width: 100%;
+    height: 34px;
+    font-size: 14px;
+    color: #555555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    pointer-events: none;
+}
+
+.input-saida {
+    width: 100%;
+    height: 34px;
+    font-size: 14px;
+    color: #555555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 0 4px 4px 0;
+    pointer-events: none;
+}

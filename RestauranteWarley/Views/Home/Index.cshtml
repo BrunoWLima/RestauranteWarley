@@ -1,0 +1,99 @@
+﻿@model RestauranteWarley.Models.ModelPedidos
+@{
+    ViewBag.Title = "Warley's Restaurant";
+}
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+
+<div class="body-content" style="border: 1px solid green;">
+    <div class="row text-center"> Restaurante Warley </div>
+    <hr />
+    <div class="row cardapio">
+        <div class="col-xs-12 text-center">Cardápio</div>
+        <div class="col-xs-12">
+            <div class="col-xs-4">
+                <div class="row">
+                    <div class="col-md-12 menu-title line-right">Tipo de Prato</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 menu-subtitle line-right">1 (entrada) </div>
+                    <div class="col-md-12 menu-subtitle line-right">2 (prato principal)</div>
+                    <div class="col-md-12 menu-subtitle line-right">3 (bebida)</div>
+                    <div class="col-md-12 menu-subtitle line-right">4 (sobremesa)</div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="row">
+                    <div class="col-md-12 menu-title line-right">Manhã</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 menu-subtitle line-right">Ovos</div>
+                    <div class="col-md-12 menu-subtitle line-right">Torradas</div>
+                    <div class="col-md-12 menu-subtitle line-right">Café</div>
+                    <div class="col-md-12 menu-subtitle line-right">Sem sobremesa</div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="row">
+                    <div class="col-md-12 menu-title">Noite</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 menu-subtitle">Bife</div>
+                    <div class="col-md-12 menu-subtitle">Batatas</div>
+                    <div class="col-md-12 menu-subtitle">Vinho</div>
+                    <div class="col-md-12 menu-subtitle">Bolo</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="row padding">
+            <div class="col-xs-12 text-center">
+                @Html.Label("SOLICITAR PEDIDO", htmlAttributes: new { @class = "control-label" })
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-5">
+                        @Html.Label("Digite o seu pedido:", htmlAttributes: new { @class = "control-label label-cardapio" })
+                    </div>
+                    <div class="col-xs-7">
+                        @Html.EditorFor(model => model.Pedido, new { htmlAttributes = new { placeholder = "Ex: Manhã, 1, 2, 3, ...", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Pedido, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="row margin-top">
+                    <div class="col-xs-12 text-center">
+                        <input class="btn-pedido" type="submit" name="pedido" value="Enviar pedido" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row margin padding">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-12 text-center"> MEUS PEDIDOS </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 text-center">@Html.Label("Entrada")</div>
+                    <div class="col-xs-6 text-center">@Html.Label("Saída")</div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-5 menu-entrada">
+                        @Html.EditorFor(model => model.ListaPedidos, new { htmlAttributes = new { @class = "form-control input-entrada" } })
+                    </div>
+                    <div class="col-xs-7 menu-saida">
+                        @Html.EditorFor(model => model.ListCardapio, new { htmlAttributes = new { @class = "form-control input-saida" } })
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
